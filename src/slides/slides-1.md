@@ -26,7 +26,20 @@ class: vertigo
 développement collaboratif et sa redistribution à une communauté de
 contributeurs et d’utilisateurs."
 
+## FLOSS
+
+- Free, as in speech
+- Libre, as in french
+- Open, as in bar
+- Source, as in code
+- Software, as in everywhere
+
 Libre (R. Stallman) != Open Source (E. Raymond)
+
+---
+class: vertigo
+
+# Open Source ?
 
 ## Enjeux
 
