@@ -20,11 +20,11 @@ class: vertigo
 
 # Open Source ?
 
-## Logiciel libre (définition IRILL)
+## Logiciel libre
 
 "Le logiciel libre est caractérisé par sa liberté d’utilisation, un
 développement collaboratif et sa redistribution à une communauté de
-contributeurs et d’utilisateurs."
+contributeurs et d’utilisateurs." (IRILL)
 
 ## FLOSS
 
@@ -34,7 +34,10 @@ contributeurs et d’utilisateurs."
 - Source, as in code
 - Software, as in everywhere
 
-Libre (R. Stallman) != Open Source (E. Raymond)
+### Libre (R. Stallman) != Open Source (E. Raymond)
+
+???
+IRILL : Initiative de Recherche et Innovation sur le Logiciel Libre
 
 ---
 class: vertigo
@@ -89,7 +92,7 @@ class: vertigo
 
 ## Acteurs majeurs
 
-- FSF, Mozilla, Google, EFF, GitHub
+- Free Sofware Fundation, Mozilla, Google, EFF, GitHub, Universités, etc...
 
 ## Distributions open source
 
@@ -98,6 +101,8 @@ class: vertigo
 ## Exemples audio
 
 - Open Music, JUCE, FFMpeg, Telemeta, TimeSide, etc...
+
+## toutes les librairies web !
 
 ---
 class: vertigo
@@ -174,6 +179,8 @@ class: vertigo
 - Embedding
 - Confiance (code lisible)
 
+
+
 ---
 class: vertigo
 
@@ -206,7 +213,7 @@ class: vertigo
 
 # Open Source @ IRCAM ?
 
-- Création d’un manifeste Open Source l’IRCAM
+- Création d’un manifeste Open Source à l’IRCAM
 - Proposition de (doubles) licences, conseil
 - Workshops réguliers, documentation
 - GitHub : multi-comptes Ircam
