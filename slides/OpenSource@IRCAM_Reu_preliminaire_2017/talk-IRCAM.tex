@@ -1,0 +1,286 @@
+\documentclass[xcolor=dvipsnames]{beamer}
+
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage{url}
+\usepackage{lmodern}
+\usepackage{listings}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{textcomp}
+\usepackage{hyperref}
+\usepackage[T1]{fontenc}
+\usepackage{xcolor}
+\usepackage{syntax}
+\usepackage{color}
+\usepackage{subcaption}
+\usepackage{tikz}
+
+\pagenumbering{gobble}
+\pagestyle{empty}
+
+\definecolor{light-gray}{gray}{0.60}
+
+\setbeamertemplate{navigation symbols}{}
+% \addtobeamertemplate{footline}{}
+% \setbeamertemplate{footline}{\hspace*{.5cm}\scriptsize{\insertauthor\hspace*{50pt} \hfill\insertframenumber\hspace*{.5cm}}}
+
+\AtBeginSection[]
+{
+  \begin{frame}<beamer>{Menu}
+    \tableofcontents[currentsection,hideothersubsections]
+  \end{frame}
+}
+
+% \AtBeginSubsection[]
+% {
+%   \begin{frame}<beamer>{Le menu}
+%     \tableofcontents[currentsection,currentsubsection,hideothersubsections,subsectionstyle=show/shaded/hide]
+%   \end{frame}
+% }
+
+
+\setbeamertemplate{section in toc}{%
+  \textcolor{MidnightBlue}{$\blacktriangleright$ \inserttocsection}
+}
+
+\setbeamertemplate{subsection in toc}{%
+\leavevmode\leftskip=5.65ex%
+  \llap{\raisebox{0.2ex}{\textcolor{MidnightBlue}{$\blacktriangleright$}}\kern1ex}%
+  \textcolor{MidnightBlue}{\inserttocsubsection}\par%
+}
+
+\usecolortheme{seahorse}
+\usecolortheme{rose}
+\useoutertheme{infolines}
+
+\usecolortheme[named=SkyBlue]{structure}
+\setbeamercolor{block title}{fg=MidnightBlue}
+
+\title[Open-source]{Open-source à l'IRCAM}
+\subtitle{Réunion préliminaire}
+\author[Pierre Talbot]{\textbf{Pierre Talbot}\\
+\texttt{(talbot@ircam.fr)}}
+\institute[IRCAM]{Institut de Recherche et Coordination Acoustique/Musique (IRCAM)}
+\date[]{17 mai 2017}
+
+\begin{document}
+\maketitle
+
+\section{Introduction}
+
+\begin{frame}
+\frametitle{Introduction}
+\begin{itemize}
+\item Faire un tour d'horizon de l'open-source et son applicabilité dans le cadre de l'IRCAM.
+\item Développer des problématiques et proposer des solutions.
+\end{itemize}
+\begin{block}{Sources}
+Présentation en partie basée sur ``Les livrets bleus du Logiciel Libre'': ``Modèles économiques'' et ``Fondamentaux juridiques'' de l'IRILL (slides marquées d'une astérisque).
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{Le logiciel libre*}
+
+\begin{block}{Qu'est-ce donc ?}
+``Le logiciel libre est caractérisé par sa liberté d'utilisation, un développement collaboratif et sa redistribution à une communauté de contributeurs et d'utilisateurs.''
+\end{block}
+
+\begin{block}{Pourquoi l'open-source}
+\begin{itemize}
+\item Pour la recherche ;
+\item Pour construire une communauté ;
+\item Pour la valorisation d'un produit.
+\end{itemize}
+\end{block}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Pour la recherche}
+\begin{itemize}
+\item Réplicabilité des résultats scientifiques. Exemple : l'implémentation d'un algorithme décrit dans un article. (RR_Webinar, ReScience, activepapers.org)
+\item Visibilité du projet, possibilité d'utilisation et collaboration avec d'autres scientifiques.
+\item Citer une version exacte d'un logiciel dans un papier (rigeur scientifique).
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Pour construire une communauté}
+\begin{itemize}
+\item S'imposer ``implicitement'' comme la référence grâce à la communauté autours du logiciel.
+\item Contributeurs externes potentiellement ``recrutable'' (développeurs, stage master, doctorants, docteur étendant des logiciels,...)
+\item Attraction de développeurs et chercheurs de qualité (notamment programmes open-source associées : cf. Google Summer of Code, ...)
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Pour la valorisation d'un produit*}
+\begin{itemize}
+\item Visibilité accrue auprès de clients potentiels.
+\item Marketing plus simple puisque la solution est facilement testable.
+\item Formation facilitée : au niveau universitaire, ... (si les logiciels sont gratuits / ou un fragment).
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Open-source à l'IRCAM}
+Création d'une fondation open-source pour :
+\begin{itemize}
+\item Consolider l'IRCAM dans sa position de leader dans les logiciels de son ;
+\item Profiter d'un développement plus efficace ;
+\item Agrandir la communauté d'utilisateurs ET de contributeurs ;
+\item Tout en gardant le contrôle sur les aspects économiques.
+\end{itemize}
+\end{frame}
+
+\section{Modèles économiques}
+
+\begin{frame}[fragile]
+\frametitle{Les acteurs*}
+
+\begin{itemize}
+\item Fondation : Son rôle est de mutualiser les efforts de R\&D afin de répondre à des besoins génériques.
+\item Éditeur : Industrialiser une solution open-source en l'adaptant aux besoins des entreprises.
+\item Intégrateur : Intègre dans une entreprise le logiciel et fournit la maintenance.
+\end{itemize}
+
+\begin{example}
+Fondation Linux $\rightarrow$ Entreprise RedHat (Éditeur/Intégrateur) $\rightarrow$ Intel/Microsoft/... (Intégrateur/Client)
+\end{example}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Problématique 1 : IRCAM en tant qu'acteur}
+
+\begin{itemize}
+\item Fondation : Création de logiciels issus d'effort R\&D : (OpenMusic, Orchids, \ldots).
+\item Éditeur : Le forum distribue et vend des solutions complètes.
+\item Intégrateur : Les formations aux logiciels (événements du forum).
+\end{itemize}
+
+\begin{block}{Objectif}
+Délimiter les rôles de chaque entité et assurer leur bonne collaboration.
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{Modèles économiques*}
+
+\begin{itemize}
+\item Doubles licences :
+  \begin{enumerate}
+  \item Logiciel open-source disponible sous licence à copyleft fort (GPL, AGPL) : pas de possibilité d'intégration.
+  \item Licence propriétaire payante pour les entreprises.
+  \end{enumerate}
+\item \textit{Open core} : Développement d'un noyau technologique open-source et d'un produit payant au dessus de ce noyau.
+\item \textit{Cloud} : Logiciel open-source et mise à disposition payante sous forme de service web.
+\item Open-source professionnel : Logiciel open-source. Profits tirés de ``la maintenance et du support associés au logiciel édité'' (Wikipedia).
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Problématique 2 : Quel modèle pour l'IRCAM}
+
+\begin{itemize}
+\item Diversité des contenus : code informatique (application ``end-user'' ou librairies), patch, création musicales, base de données de son, \ldots.
+\item IRCAM en tant qu'institut de recherche et éditeur de logiciel : objectifs pas toujours les mêmes.
+\item Comment commencer ? Encourager les nouveaux projets à s'orienter vers une solution open-source et fournir un support d'aide ?
+\item Attention aux dérives (notamment cas Antescofo).
+\end{itemize}
+\end{frame}
+
+\section{Aspects juridiques}
+
+\begin{frame}
+\frametitle{Licences open-source*}
+
+\begin{itemize}
+\item Ces licences ont été écrite pour pouvoir être utilisée dans un cadre juridique si besoin.
+\item Énormément de licences mais finalement peu de catégories :
+  \begin{enumerate}
+    \item \textit{Copyleft fort} : Obligation de diffuser les œuvres dérivées sous la même licence, effet contaminant : GPL.
+    \item \textit{Copyleft faible} : Permet l'utilisation du code dans un cadre potentiellement non libre tant que les modifications sur le projet en lui-même sont rediffusées : LGPL, Mozilla Public Licence.
+    \item \textit{Non-copyleft} : Licences permissives : MIT, BSD, Apache.
+  \end{enumerate}
+\end{itemize}
+
+\end{frame}
+
+\section{En pratique}
+
+
+\begin{frame}
+\frametitle{Niveau d'utilisation de l'open-source}
+
+\begin{enumerate}
+\item Uni-directionnel : distribution du code source sous forme d'archive, contact par mail, peu d'interaction.
+\item Bi-directionnel :
+  \begin{itemize}
+  \item Mise à disposition des sources sur une plateforme (Github).
+  \item Utilisation du \textit{bug tracker} et retour des utilisateurs.
+  \item Review des pull requests des contributeurs.
+  \end{itemize}
+\item Communautaire : Voir projet Rust (organisation open-source au cœur du mode de fonctionnement)
+  \begin{itemize}
+    \item Communication intensive avec la communauté.
+    \item Mentorat pour les nouveaux contributeurs et utilisateurs (forum, IRC, ...).
+    \item Roadmap publique et collaborative.
+    \item Organisation hiérarchique en groupe de travail, rapport d'activité publique.
+    \item Nouvelles fonctionnalités suivent un système de RFCs.
+    \item \ldots
+  \end{itemize}
+\end{enumerate}
+\end{frame}
+
+\begin{frame}
+\frametitle{Mesures concrètes}
+
+Quelques mesures concrètes applicables rapidement (pour commencer) :
+
+\begin{itemize}
+\item Création d'un manifeste contenant les licences recommandées par l'IRCAM et information relative à l'open-source.
+\item Création d'un compte "Institution" sur GitHub pour l’agrégation des softwares de l'IRCAM.
+\item Workshop servant de moteur de diffusion de ces nouvelles idées et mouvance à l'IRCAM.
+\item Conseil auprès de l'IRILL.
+\end{itemize}
+
+\begin{block}{Github}
+\begin{itemize}
+  \item + de 12 millions d'inscrits.
+  \item Projets open-source majeurs sur cette plateforme.
+  \item Vite dit : Beaucoup mieux que notre forge IRCAM.
+\end{itemize}
+\end{block}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Un workshop ?}
+Quelques idées d'orateurs :
+\begin{itemize}
+\item Felix S, fondation Mozilla, projet Rust : Éco-système autour de Rust extrêment développé et bien pensé.
+\item Roberto Di Cosmo, directeur de l'IRILL, fondateur de Software Heritage : Open-source et industriels. (fallback : Emmanuel Chailloux, IRILL).
+\item Guillaume, IRCAM : expérience industriel.
+\item \ldots
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Conclusion}
+
+Adopter l'open-source, c'est prendre le wagon en marche et s'assurer de la pérennité des résultats de recherche ainsi que donner de nouvelles perspectives économiques pour l'IRCAM.
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Merci de votre attention.}
+\begin{center}
+% \includegraphics[scale=0.5]{../../../images/question.jpg}
+\end{center}
+\end{frame}
+
+
+\end{document}

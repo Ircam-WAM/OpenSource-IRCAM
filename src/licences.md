@@ -1,0 +1,5 @@
+
+# Licences
+
+- GPL
+- BSD
